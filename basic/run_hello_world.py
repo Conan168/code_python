@@ -1,0 +1,5 @@
+# pratice to use print() and input()
+username = input("what's your name?")
+length = len(username)
+print("hello" + " " + username + "!")
+print("The length of name: " + str(length))

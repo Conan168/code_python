@@ -1,0 +1,17 @@
+services:
+  python-env:
+    image: python:3.12-alpine
+    container_name: python312-env-alpine
+    working_dir: /lab
+
+    build:
+      context: .
+      dockerfile: Dockerfile
+
+    volumes: 
+      - /root/code_with_python:/lab
+
+    command: ["sleep", "infinity"]
+
+    restart: "no"
+
