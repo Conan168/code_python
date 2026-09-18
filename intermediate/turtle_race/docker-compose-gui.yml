@@ -1,0 +1,17 @@
+services:
+  python-env:
+    image: python:3.12-slim
+    container_name: python312-env-slim
+    working_dir: /lab
+
+    build:
+      context: .
+      dockerfile: Dockerfile.gui
+
+    volumes: 
+      - /root/code_with_python:/lab
+
+    command: ["sleep", "infinity"]
+
+    restart: "no"
+
