@@ -8,6 +8,8 @@ RUN apk add --no-cache \
     curl \
     bash \
     tk \
-    tcl
+    tcl \
+    fontconfig \
+    ttf-dejavu
 
 CMD ["/bin/bash"]

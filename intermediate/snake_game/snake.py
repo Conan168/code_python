@@ -1,3 +1,5 @@
+"""snake module"""
+
 from turtle import Turtle
 STARTING_POSITIONS = [(0, 0), (-20, 0), (-40, 0)]
 MOVE_DISTANCE = 20
@@ -8,6 +10,7 @@ RIGHT = 0
 
 
 class Snake:
+    """snake"""
 
     def __init__(self):
         self.segments = []
@@ -15,6 +18,7 @@ class Snake:
         self.head = self.segments[0]
 
     def create_snake(self):
+        """snake body"""
         for position in STARTING_POSITIONS:
             new_segment = Turtle("square")
             new_segment.color("white")
@@ -23,6 +27,7 @@ class Snake:
             self.segments.append(new_segment)
 
     def move(self):
+
         for seg_num in range(len(self.segments) - 1, 0, -1):
             new_x = self.segments[seg_num - 1].xcor()
             new_y = self.segments[seg_num - 1].ycor()
