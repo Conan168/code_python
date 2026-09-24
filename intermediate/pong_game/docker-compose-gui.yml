@@ -9,7 +9,7 @@ services:
       dockerfile: Dockerfile.gui
 
     volumes: 
-      - /root/code_with_python/intermediate/turtle_race:/lab
+      - /root/code_with_python/intermediate/pong_game:/lab
       - /tmp/.X11-unix:/tmp/.X11-unix
         
     environment:

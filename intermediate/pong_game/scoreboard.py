@@ -3,26 +3,25 @@
 from turtle import Turtle
 
 ALIGNMENT = "center"
-FONT = ("DejaVu Sans", 16, "normal")
+FONT = ("DejaVu Sans", 24, "normal")
 
 
 class Scoreboard(Turtle):
     """scoreboard class"""
 
-    def __init__(self):
+    def __init__(self, username, position):
         super().__init__()
+        self.name = username
         self.score = 0
-        with open("data.txt", encoding="utf-8") as data:
-            self.high_score = int(data.read())
         self.color("yellow")
         self.penup()
-        self.goto(0, 250)
+        self.goto(position)
         self.update_scoreboard()
         self.hideturtle()
 
     def update_scoreboard(self):
         """update scoreboard"""
-        self.write(f"Score: {self.score}\nHightest: {self.high_score}", move=False,
+        self.write(f"{self.name}: {self.score}", move=False,
                    align=ALIGNMENT, font=FONT)
 
     def increase_score(self):
@@ -31,15 +30,9 @@ class Scoreboard(Turtle):
         self.clear()
         self.update_scoreboard()
 
-    def record(self):
-        if self.score > self.high_score:
-            self.high_score = self.score
-            with open("data.txt", mode="w", encoding="utf-8") as data:
-                data.write(f"{self.high_score}")
-
     def game_over(self):
-        """collision"""
+        """winner"""
         self.goto(0, 0)
         self.color("red")
-        self.write("Game Over!", move=False,
+        self.write(f"{self.name} win!", move=False,
                    align=ALIGNMENT, font=FONT)
