@@ -1,0 +1,21 @@
+services:
+  python-env:
+    image: python:3.12-slim-pandas-request-build
+    container_name: python312-env-slim-pandas-request
+    working_dir: /lab
+
+    build:
+      context: .
+      dockerfile: Dockerfile.request
+
+    volumes: 
+      - /root/code_with_python/intermediate/quizzler_app:/lab
+      - /tmp/.X11-unix:/tmp/.X11-unix
+        
+    environment:
+      DISPLAY: ":0"
+
+    command: ["sleep", "infinity"]
+
+    restart: "no"
+
