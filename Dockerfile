@@ -2,11 +2,10 @@ FROM python:3.12-alpine3.24
 
 WORKDIR /lab
 
-RUN apt-get update && \
-    apt-get install -y --no-install-recommends \
+RUN apk add --no-cache \
     sudo \
     vim \
-    curl && \
-    rm -rf /var/lib/apt/lists/*
+    curl \
+    bash
 
 CMD ["/bin/bash"]

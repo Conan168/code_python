@@ -1,6 +1,6 @@
 services:
   python-env:
-    image: python:3.12-alpine
+    image: python:3.12-alpine-build
     container_name: python312-env-alpine
     working_dir: /lab
 

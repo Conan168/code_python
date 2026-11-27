@@ -1,0 +1,21 @@
+services:
+  python-env:
+    image: python:3.12-alpine-build
+    container_name: python312-env-alpine
+    working_dir: /lab
+
+    build:
+      context: .
+      dockerfile: Dockerfile.tk
+
+    volumes: 
+      - /root/code_with_python/intermediate/pomodoro_tool:/lab
+      - /tmp/.X11-unix:/tmp/.X11-unix
+        
+    environment:
+      DISPLAY: ":0"
+
+    command: ["sleep", "infinity"]
+
+    restart: "no"
+

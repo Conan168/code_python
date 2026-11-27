@@ -1,0 +1,20 @@
+services:
+  python-env:
+    image: python:3.12-alpine-flask-build
+    container_name: python312-env-alpine
+    working_dir: /lab
+
+    build:
+      context: .
+      dockerfile: Dockerfile.flask
+
+    volumes: 
+      - /root/code_with_python/intermediate/higher_or_lower_urls/:/lab
+
+    ports:
+      - "5000:5000"
+
+    command: ["sleep", "infinity"]
+
+    restart: "no"
+

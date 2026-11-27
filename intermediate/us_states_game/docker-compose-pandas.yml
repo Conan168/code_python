@@ -1,0 +1,21 @@
+services:
+  python-env:
+    image: python:3.12-slim-pandas-build
+    container_name: python312-env-slim-pandas
+    working_dir: /lab
+
+    build:
+      context: .
+      dockerfile: Dockerfile.pandas
+
+    volumes: 
+      - /root/code_with_python/intermediate/us_states_game:/lab
+      - /tmp/.X11-unix:/tmp/.X11-unix
+        
+    environment:
+      DISPLAY: ":0"
+
+    command: ["sleep", "infinity"]
+
+    restart: "no"
+
